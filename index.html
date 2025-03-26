@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saia Comigo?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('./imagemBackground.png') no-repeat center center/cover;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            gap: 20px; /* Espaço entre os botões */
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: #22c55e;
+            color: white;
+        }
+        .no {
+            background-color: #ef4444;
+            color: white;
+            position: relative; /* Remove a posição absoluta */
+        }
+        #loveImage {
+            display: none;
+            margin-top: 20px;
+            width: 200px;
+            margin-top: 40px; /* Espaço entre o botão e a imagem */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Saia comigo?</h1>
+        <div class="buttons">
+            <button class="yes" id="yesButton">Sim</button>
+            <button class="no" id="noButton">Não</button>
+        </div>
+        <img id="loveImage" src="ceva.png" alt="Imagem de amor">
+    </div>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+        const yesButton = document.getElementById("yesButton");
+        const loveImage = document.getElementById("loveImage");
+
+        noButton.addEventListener("mouseenter", () => {
+            const x = Math.random() * window.innerWidth * 0.8;
+            const y = Math.random() * window.innerHeight * 0.8;
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+
+        yesButton.addEventListener("click", () => {
+            loveImage.style.display = "block";
+            noButton.style.display = "none";
+        });
+    </script>
+</body>
+</html>
